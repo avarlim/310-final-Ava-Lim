@@ -1,0 +1,145 @@
+{% extends "final_template.html" %}
+{% block content %}
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet"
+          href="{{ c['url'] }}">
+    <style>
+      font1 {
+        font-family: '{{ c['font1'] }}';
+        font-size: 30px;
+      }
+      font2 {
+        font-family: '{{ c['font2'] }}';
+        font-size: 30px;
+      }
+      h5 {
+        font-size: 18px;
+        padding: 10px;
+      }
+      h1 {
+        padding: 20px;
+      }
+    </style>
+</head>
+    <div class="row">
+        <div class="col-6">
+            <font1>
+                Headers font:
+                {{ c['font1'] }}
+            </font1><br>
+            <font2>
+                Body font:
+                {{ c['font2'] }}
+            </font2>
+            <div style="background-color: {{ c['hex_colors'][0][0] }} ; padding: 20px;">
+                Light contrast
+                {{ c['hex_colors'][0][0] }}
+            </div>
+            <div style="background-color: {{ c['hex_colors'][0][1] }} ; padding: 20px;">
+                Light accent
+                {{ c['hex_colors'][0][1] }}
+            </div>
+            <div style="background-color: {{ c['hex_colors'][0][2] }} ; padding: 20px;">
+                Main brand color
+                {{ c['hex_colors'][0][2] }}
+            </div>
+            <div style="background-color: {{ c['hex_colors'][0][3] }} ; padding: 20px;">
+                Dark accent
+                {{ c['hex_colors'][0][3] }}
+            </div>
+            <div style="background-color: {{ c['hex_colors'][0][4] }} ; padding: 20px;">
+                Dark contrast
+                {{ c['hex_colors'][0][4] }}
+            </div>
+            <h4>
+                <a href="{{ c['hex_colors'][1] }}" target="_blank">Check visual accessibility with Palett.es</a>
+            </h4>
+        </div>
+        <div class="col-6">
+            <form action='{{url_for("f")}}' method="post">
+                <h5>
+                    <label for="font1">Lock headers font as:</label>
+                    <select name="font1" id="font1">
+                      <option value="none">None</option>
+                      <option value="lock">Current font</option>
+                      <option value="serif">Serif</option>
+                      <option value="sans_serif">Sans Serif</option>
+                      <option value="handwriting">Handwriting</option>
+                      <option value="display">Display</option>
+                      <option value="monospace">Monospace</option>
+                    </select>
+                </h5>
+                <h5>
+                  <label for="font2">Lock body font as:</label>
+                    <select name="font2" id="font2">
+                      <option value="none">None</option>
+                      <option value="lock">Current font</option>
+                      <option value="serif">Serif</option>
+                      <option value="sans_serif">Sans Serif</option>
+                      <option value="handwriting">Handwriting</option>
+                      <option value="display">Display</option>
+                      <option value="monospace">Monospace</option>
+                    </select>
+                </h5>
+                <h5>
+                  <label for="color0">Lock current light contrast color as:</label>
+                    <select name="color0" id="color0">
+                      <option value="none">None</option>
+                      <option value="lc">Light contrast</option>
+                      <option value="la">Light accent</option>
+                      <option value="main">Main brand color</option>
+                      <option value="da">Dark accent</option>
+                      <option value="dc">Dark contrast</option>
+                    </select>
+                </h5>
+                <h5>
+                  <label for="color1">Lock current light accent color as:</label>
+                    <select name="color1" id="color1">
+                      <option value="none">None</option>
+                      <option value="lc">Light contrast</option>
+                      <option value="la">Light accent</option>
+                      <option value="main">Main brand color</option>
+                      <option value="da">Dark accent</option>
+                      <option value="dc">Dark contrast</option>
+                    </select>
+                </h5>
+                <h5>
+                  <label for="color2">Lock current main brand color as:</label>
+                    <select name="color2" id="color2">
+                      <option value="none">None</option>
+                      <option value="lc">Light contrast</option>
+                      <option value="la">Light accent</option>
+                      <option value="main">Main brand color</option>
+                      <option value="da">Dark accent</option>
+                      <option value="dc">Dark contrast</option>
+                    </select>
+                </h5>
+                <h5>
+                  <label for="color3">Lock current dark accent color as:</label>
+                    <select name="color3" id="color3">
+                      <option value="none">None</option>
+                      <option value="lc">Light contrast</option>
+                      <option value="la">Light accent</option>
+                      <option value="main">Main brand color</option>
+                      <option value="da">Dark accent</option>
+                      <option value="dc">Dark contrast</option>
+                    </select>
+                </h5>
+                <h5>
+                  <label for="color4">Lock current dark contrast color as:</label>
+                    <select name="color4" id="color4">
+                      <option value="none">None</option>
+                      <option value="lc">Light contrast</option>
+                      <option value="la">Light accent</option>
+                      <option value="main">Main brand color</option>
+                      <option value="da">Dark accent</option>
+                      <option value="dc">Dark contrast</option>
+                    </select>
+                </h5>
+                <h5>
+                    <input type="submit" value="SUBMIT">
+                </h5>
+            </form>
+        </div>
+{% endblock %}
